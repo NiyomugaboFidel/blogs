@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+    <!-- ----------------------LINK-CSS------------ -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- -------------LINK-ICONSCOUT-------------------- -->
+    <!-- ---------------  UNICONS---------------->
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+<!-- -------------------FONT-AWESOME------------ -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"" />
+<!-- ------------FAVICON-------------- -->
+
+<link rel="shortcut icon" href="../public/log/log.svg" type="image/x-icon">
+
+</head>
+<body>
+    <div class="container">
+    <!-- ---------------------------NAV------------------ -->
+    <header>
+    <nav id="header">
+        <div class="nav-logo">
+         <a href="../public/index.html"><img src="../public/log/log.svg" ><h2>Blog</h2></a>
+         <div class="cycle"></div>
+        </div>
+        <!-- ------------NAV-CONTENT------------ -->
+        
+            <div class="nav-menu">
+                <ul class="nav_menu_list responsive">
+                    <li class="nav-list">
+                        <a href="../public/index.html">Home</a>
+                    </li>
+                    <li class="nav-list">
+                        <a href="../public/blog.html">Blog</a>
+                    </li>
+                    <!-- <li class="nav-list">
+                        <a href="../public/singlepost.html">Single Post</a>
+                    </li> -->
+                    <li class="nav-list">
+                        <a href="../public/pages.html">Pages</a>
+                    </li>
+                    <li class="nav-list">
+                        <a href="../public/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-btn responsive">
+                <button onclick="formShow()" class="btn login"><a href="display.html">Login</a></button>
+                <button class="btn signup" onclick="formShowSignUp()"><a href="display.html" color="black">SignUp</a></button>
+            </div>
+             <!-- ------------NAV-AVATER---------- -->
+        <div class="avater">
+            <div class="avater_profile">
+                <img src="../public/images/avaters/avater8.jpg" alt="">
+            </div>
+        </div>
+        <div class="nav-menu-media">
+            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+        
+
+    </nav>
+</header>
+
+
+    <!-- -------------------------------MAIN----------------- -->
+    <main class="wrapper">
+
+    <div class="container2">
+        <div class="box-image-home">
+            <div class="box-image-home-content">
+                <h2>The Impact of Technology on the workplace 
+                    How Technology is Changing Lorem ipsum dolor, <br> 
+                    sit amet consectetur adipisicing elit. Vero 
+                </h2>
+
+                 <div class="search-bar">
+                    <i class="uil uil-search"></i>
+                    <input type="Search" id="search" placeholder="Search..." value>
+            
+                 </div>
+            </div>
+        </div>
+        <div class="add-box">
+            <div class="popup-box">
+                <p id="name-test">j</p>
+                <h3>You can place ads</h3>
+                <span>750x100</span>
+            </div>
+        </div>
+        <!-- ------------------POST--------------- -->
+        <div class="container-post">
+            <div class="box-container">
+               
+                
+            </div>
+
+            <button id="load-more" class="btn load-more">Load more<i class="uil uil-angle-double-down"></i></button>
+        </div>
+    </div>
+    <div class="add-box">
+        <div class="popup-box">
+            <p>Advertisment</p>
+            <h3>You can place ads</h3>
+            <span>750x100</span>
+        </div>
+    </div>
+    </main>
+
+
+    <!-- -----------------------FOOTER------------------------ -->
+    <footer>
+        <div class="container3">
+            <div class="line1">
+            <h3>About</h3>
+            <p>Lorem ipsum dolor sit amet
+                 consectetur adipisicing elit
+                . Dolor maiores in libero
+                 ullam vel aut, adipisci 
+                de sapiente, molestiae quas
+                , repudiandae ipsum? Facere.
+            </p>
+            <div class="line1-info">
+                
+                    <p><span>Email:</span>info@jstemplate.net</p>
+                    <p>  <span>Phone:</span>+250 788 888 888</p>
+                  
+                
+                     
+            </div>
+            
+        </div>
+        <div class="line2">
+            <h3>Quick Link</h3>
+            <ul>
+               <li> <a href="home.html">Home</a> </li>
+               <li> <a href="about.html">About</a> </li>
+               <li> <a href="blog.html">Blog</a> </li>
+               <li> <a href="archived.html">Archived</a> </li>
+               <li> <a href="aurthor.html">Author</a> </li>
+               <li> <a href="contact.html">Contact</a> </li>
+            </ul>
+        </div>
+        <div class="line3">
+            <h3>Category</h3>
+            <ul>
+               <li> <a href="category.html">Lifestyle</a> </li>
+               <li> <a href="categoryt.html">Technology</a> </li>
+               <li> <a href="category.html">Travel</a> </li>
+               <li> <a href="category.html">Bussiness</a> </li>
+               <li> <a href="category.html">Economy</a> </li>
+               <li> <a href="categoyr.html">Sports</a> </li>
+            </ul>
+        </div>
+
+        <div class="line4">
+            <h3>weekly Newsletter</h3>
+
+            <p>Get blog articles and offers via email</p>
+
+            <form action="">
+                <div class="email-box">
+                    <div class="inputs">
+                        <input type="email" id="email" placeholder="Your Email" value>
+                        <i class="uil uil-envelope"></i>
+                    </div>
+                  
+                    
+                    <button class="btn sub-btn">Subscribe<i class="uil uil-message"></i></button>
+                </div>
+                
+            </form>
+        </div>
+        </div>
+        <div class="bottom-box">
+            <div class="footer-logo">
+                <a href="../public/index.html"><img src="../public/log/log.svg" ><h4>Blog</h4></a>
+                <p><span>&COPY;</span>developed By Fidel Pro.All Rights Reserved.</p>
+               </div>
+               <div class="footer-text">
+                <p>Terms of Use</p>
+                <p>Privacy Policy</p>
+                <p>Cookie Policy</p>
+               </div>
+        </div>
+    </footer>
+</div>
+    <!-- -----------------------JAVASCRIPT-SOURCE-------------------- -->
+<script>
+    var boxes = document.querySelectorAll('.box');
+var search = document.querySelector('#search');
+
+  
+    search.addEventListener('keyup',e =>{
+    
+        boxes.forEach(posts =>{
+      console.log(search.value.toLowerCase())
+
+            if(posts.innerText.toLowerCase().includes(
+                e.target.value.toLowerCase())){
+                
+                posts.style.display = 'block';
+               
+            }else{
+                posts.style.display = 'none'
+    
+            
+            }
+        });
+    });
+
+
+
+</script>
+    <script src="../js/script.js"></script>
+
+
+    
+</body>
+</html>

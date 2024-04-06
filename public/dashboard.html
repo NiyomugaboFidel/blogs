@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/dash.css">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+<!-- -------------------FONT-AWESOME------------ -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"" />
+<!-- ------------FAVICON-------------- -->
+
+<link rel="shortcut icon" href="../public/log/log.svg" type="image/x-icon">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+
+            <nav>
+                <div class="menu-bar">
+                    <ul>
+                        <li onclick="likes()">
+                            <a href="#">BlogInfo</a>
+                        </li>
+                        <li onclick="post()">
+                            <a href="#">Posting</a>
+                        </li>
+                        <li onclick="user()">
+                            <a href="#">Users</a>
+                        </li>
+                        <li onclick="message()">
+                            <a href="#">Message</a>
+                        </li>
+                        <li onclick="comment()">
+                            <a href="#">comment</a>
+                        </li>
+                        <li onclick="homePage()">
+                            <a href="#">HomePage</a>
+                        </li>
+                    </ul>
+            
+                </div>
+                <div class="nav-bottom">
+                    <p>&copy; DK 2024</p>
+                </div>
+               </nav>
+        </header>
+   
+
+   <main>
+    <div class="main-container">
+        <div class="header">
+            <div class="main-header">
+                <div class="menu-button">
+                   <img src="./pinwheel-8829_256.gif" alt="">
+                </div>
+                <div class="logo">
+                    <img src="./pinwheel-8829_256.gif" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="natification-bar">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisi
+                cing elit. Quae modi, deleniti atque unde
+                 culpa eum quasi id v</p>
+        </div>
+
+        <!--table-display-infomation-of-blog-->
+        <div class="table-container">
+            <table id="table-user" class="">
+               
+
+            </table>
+            <table id="table-message" class="">
+                
+
+
+            </table>
+            <table id="table-comment" class="">
+                
+                
+
+            </table>
+            <table id="table-like" class="">
+                <thead id="thead">
+                      <!-- <tr>
+                        <th>N<sup>o</sup></th>
+                        <th>id</th>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>description</th>
+                        <th>Action</th>
+                    </tr> -->
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+               
+            </table>
+        
+                
+    <form id="table-post" class="">
+                     
+        <div id="con" class="container-edit">
+            <div class="post-photo">
+                <div class="image-card">
+                    <img src="../public/images/category/user.svg" id="imageUrl" alt="">
+                </div>
+                
+                <input type="file" id="inputFile">
+                <label for="inputFile">UploadPhoto</label>
+            </div>
+           <div class="post post-title">
+            <input type="text" id="inputTitle"  placeholder="Title">
+           </div>
+             <div class="post post-username">
+                <input type="text" id="inputName"  placeholder="Name">
+             </div>
+            
+            <div class="post description">
+            
+                <textarea placeholder="description" id="inputDescription" cols="30" rows="10"></textarea>
+
+            </div>
+            <button type="submit" id="postBtn">Post</button>
+           
+           
+        </div>  
+
+     </form>
+
+
+        </div>
+    </div>
+
+    <div style="display: none;" class="box-container">
+               
+                
+    </div>
+   </main>
+
+
+    </div>
+
+<script>
+    const inputFile = document.querySelector('#inputFile');
+    const imageUrl = document.querySelector('#imageUrl')
+
+    inputFile.onchange = ()=>{
+        imageUrl.src= URL.createObjectURL(inputFile.files[0]);
+    }
+</script>
+
+     
+    <script src="../js/main.js"></script>
+
+</body>
+</html>
