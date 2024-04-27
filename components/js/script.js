@@ -33,12 +33,12 @@ window.onscroll = function(){headerNavMenu()};
     if(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
 
         navHeader.style.boxShadow = '0 1px 6px rgb(0, 0, 0, 0.1)'
-        navHeader.style.height= '60px'
-        navHeader.style.lineHeight = '60px'
+        navHeader.style.height= '40px'
+        navHeader.style.lineHeight = '40px'
     }else{
         navHeader.style.boxShadow = 'none'
-        navHeader.style.height= '65px'
-        navHeader.style.lineHeight = '65px'
+        navHeader.style.height= '45px'
+        navHeader.style.lineHeight = '45px'
     }
  }
 
@@ -177,17 +177,40 @@ function closeBtnSignUp(){
     const boxContainer = document.querySelector('.box-container');
 
 
- 
-
-    function createPost(postId, imageUrl, title, description , name,letter, date, likes,comment){
+    async function getPost(){
+      try {
+          const response = await axios.get('http://localhost:3000/post/getPosts', {
+              headers: {
+                  
+                  Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+          },{
+              withCredentias:true
+          })
+       
+          console.log(response.data)
+          createPost(response.data.posts)
       
+           
+               } catch (error) {
+                  console.log(error)
+               }
+       
+  }
+
+  getPost()
+
+    function createPost(posts){
+
+      posts.forEach(post=>{
+
         let box = document.createElement('div')
         box.classList.add('box')
     
         box.innerHTML =`
         
         <div class="box-image">
-        <a id="post-photo" href="singlepost.html?id=${postId}"><img src="${imageUrl}"></a>
+        <a id="post-photo" href="singlepost.html?id=${post._id}"><img src="${post.imageUrl}"></a>
     </div>
     <div class="icons">
         <div style="display: flex;">
@@ -195,10 +218,10 @@ function closeBtnSignUp(){
                 <i class="fa-regular fa-heart" style="color:black;"></i>
            
             </div>
-            <small  class="like-count" style="font-size: 10px;">${likes}</small>
+            <small  class="like-count" style="font-size: 10px;">${post.likeCount}</small>
              <div class="comment">
                
-             <a id="post-photo" style="color:black;" href="singlepost.html?id=${postId}"><i id="comment-btn" class="uil uil-comment"></i></a>
+             <a id="post-photo" style="color:black;" href="singlepost.html?id=${post._id}"><i id="comment-btn" class="uil uil-comment"></i></a>
              </div>
 
 
@@ -212,23 +235,25 @@ function closeBtnSignUp(){
 
     </div>
     <div class="post-text">
-        <h4 class="category"><a href="singlepost.html?id=${postId}">${title}</a></h4>
-        <p class="description">${description}...</p>
+        <h4 class="category"><a href="singlepost.html?id=${post._id}">${post.title}</a></h4>
+        <p class="description">${post.description}...</p>
     </div>
     <div class="post-avater">
         <div class="profile-avater">
         <div class="letter">
-        <h2>${letter}</h2>
+        <div class="avatar">
+           <img src=${post.avatar} alt=${post.username}>
+          </div>
        </div>
-            <span>${name}</span>
-            <p>${date}</p>
+            <span>${post.username}</span>
+            <p>${post.date}</p>
           
              
         </div>
         
 
         <div class="comment-box">
-        <p id="comment-view">View All<small id="comment-count">${comment.length}</small>Comments</p>
+        <p id="comment-view">View All<small id="comment-count">${post.comments.length}</small>Comments</p>
         </div>
 
     </div>
@@ -258,7 +283,7 @@ let likeBtn = box.querySelector('.like')
 
         if(likeBtn.classList.contains('liked')){
    
-       likeBtn.innerHTML = `<i class="fa-solid fa-heart" style="color:red;"></i>`
+       likeBtn.innerHTML = `<i class="fa-solid fa-heart fa-beat" style="color:red;"></i>`
        const likeCountElement = box.querySelector('.like-count');
        let likes = parseInt(likeCountElement.textContent) || 0;
        likes++;
@@ -278,57 +303,68 @@ let likeBtn = box.querySelector('.like')
 
 
 boxContainer.appendChild(box)
+      })
+      
+      
 
         }
 
-function updateLikesInLocalStorage(postId, likes){
-    let posts = JSON.parse(localStorage.getItem('posts')) || []
-    let updatedPosts = posts.map(post =>{
-      if(post.id === postId){
-        post.likes = likes;
-      }
+// function updateLikesInLocalStorage(postId, likes){
+//     let posts = JSON.parse(localStorage.getItem('posts')) || []
+//     let updatedPosts = posts.map(post =>{
+//       if(post.id === postId){
+//         post.likes = likes;
+//       }
 
-      return post;
-    });
-   localStorage.setItem('posts', JSON.stringify(updatedPosts))
-}
+//       return post;
+//     });
+//    localStorage.setItem('posts', JSON.stringify(updatedPosts))
+// }
 
- const savedPost = JSON.parse(localStorage.getItem('posts')) || []
-  savedPost.forEach(post => {
-    createPost(post.id, post.imageUrl, post.title, post.description, post.name,post.letter, post.date, post.likes,post.comment)
-  });
+//  const savedPost = JSON.parse(localStorage.getItem('posts')) || []
+//   savedPost.forEach(post => {
+//     createPost(post.id, post.imageUrl, post.title, post.description, post.name,post.letter, post.date, post.likes,post.comment)
+//   });
 
-  postBtn.addEventListener('click', ()=>{
-    const postId = Date.now().toString();
-    const imageUrl = URL.createObjectURL(inputFile.files[0])
-    const title = inputTitle.value;
-    const description = inputDescription.value;
-    const name = inputName.value;
-    const date = inputDate.value;
-    const letter = (name.toUpperCase()).charAt(0)
-    const comment = ['\n']
+//   postBtn.addEventListener('click', ()=>{
+//     const postId = Date.now().toString();
+//     const imageUrl = URL.createObjectURL(inputFile.files[0])
+//     const title = inputTitle.value;
+//     const description = inputDescription.value;
+//     const name = inputName.value;
+//     const date = inputDate.value;
+//     const letter = (name.toUpperCase()).charAt(0)
+//     const comment = ['\n']
     
 
     
     
 
-    createPost(postId, imageUrl, title, description, name,letter ,date , 0,comment)
+//     createPost(postId, imageUrl, title, description, name,letter ,date , 0,comment)
 
-    const newPost = {id: postId, imageUrl: imageUrl, title: title, description: description , name: name ,letter:letter,date:date ,likes:0,comment:comment}
-    const posts = JSON.parse(localStorage.getItem('posts'))|| []
-    posts.push(newPost)
-    localStorage.setItem('posts', JSON.stringify(posts));
+//     const newPost = {id: postId, imageUrl: imageUrl, title: title, description: description , name: name ,letter:letter,date:date ,likes:0,comment:comment}
+//     const posts = JSON.parse(localStorage.getItem('posts'))|| []
+//     posts.push(newPost)
+//     localStorage.setItem('posts', JSON.stringify(posts));
 
     
 
-  });
+//   });
 
 });
 
  
 
+const navAvatar = document.querySelector('#nav-avatar')
+const avatar = localStorage.getItem('avatar') 
+console.log(avatar) 
+  // Create a new image element
+var img = document.createElement('img');
 
-
+// Set the source (URL) for the image
+var imageUrl = avatar
+img.src = imageUrl;
+navAvatar.appendChild(img)
 
 
 

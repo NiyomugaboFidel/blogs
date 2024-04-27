@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&family=Shippori+Antique&family=Truculenta:opsz,wdth,wght@12..72,75,100..900&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique&family=Truculenta:opsz,wdth,wght@12..72,75,100..900&display=swap');
+
 
 *{
     margin: 0;
@@ -44,6 +47,54 @@ html{
     display: flex;
     width: 100%;
 }
+.popupbox{
+    background: rgba(185, 179, 179, .7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+}
+.box-pop{
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgb(0, 0, 0, 0.1);
+    height: 150px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.box-pop .closebtn{
+
+text-align: center; 
+font-size: 20px;
+margin-left: 200px;
+}
+.box-pop .answer{
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgb(241, 83, 83);
+}
+.box-pop p{
+    margin-bottom: 40px;
+}
+.popupbox.active{
+display: none;
+}
 header{
 
     height: 100vh;
@@ -56,9 +107,9 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    padding:50px 15px;
+    padding:60px 15px;
     position: fixed;
-    box-shadow: 0 1px 4px rgb(0, 0, 0, 0.3);
+    box-shadow: 0 1px 4px rgb(0, 0, 0, 0.1);
     z-index: 100; 
 }
 .menu-bar ul{ 
@@ -67,21 +118,16 @@ nav{
 ul li{
     padding:10px 30px;
     width: 100%;
-    margin:10px;
+    margin:10px 0;
     background: #fff;
-    border-right:4px solid rgba(17, 0, 255, 0.6);
-    border-bottom:1px solid rgb(17, 0, 255, 0.6);
+    border-left:4px solid rgba(17, 0, 255, 0.6);
     box-shadow: 0 1px 2px 0px rgb(0, 0, 0, 0.3);
-    border-bottom-right-radius:5px ;
-    border-top-right-radius:5px ;
+ 
+
     
 }
 ul li:hover{
-  
-    margin:10px;
-    background: #ffffffab;
-    border-right:4px solid rgba(0, 255, 51, 0.949);
-    border-bottom:1px solid  rgba(0, 213, 255, 0.427);
+    background: #dddada99;
 }
 ul li.active{
     margin:10px;
@@ -93,7 +139,10 @@ ul li.active{
 ul li a{
     color: #000;
     text-align: left;
-    font-size: 14px;
+    font-size: 12px;
+}
+ul li a i{
+    padding: 0 5px;
 }
 .nav-bottom p{
     font-size: 12px;
@@ -118,39 +167,37 @@ width: 85vw;
 .main-header{
     display: flex;
     position: fixed;
-    width: 100%;
+    width: 90%;
+    margin-left:10px;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 40px;
     z-index: 300;
     box-shadow: 0 1px 6px rgb(0, 0, 0, 0.3);
-    border-radius: 5px;
     background: #fff;
 }
 .menu-button{
- border:2px solid var(--color-light-blue);
- border-radius: 50%;
- height: 45px;
- width: 45px;
  margin-left: 20px;
-
+}
+h2{
+   font-family: "Quintessential", serif;
 
 }
-.menu-button img{
-    width: 40px;
-    height: 40px;
-}
+
 .logo{
-    border:2px solid var(--color-light-blue);
-    border-radius: 50%;
-    height: 45px;
-    width: 45px;
-    margin-right: 200px;
-     
+  margin-right: 100px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }
-.logo img{
+.avatar img {
     width: 40px;
-    height: 40px;   
+    height: 40px; 
+    border-radius: 50%;  
+    padding:5px;
+}
+.logo i{
+    padding: 10px;
 }
 
 .natification-bar{
@@ -185,51 +232,76 @@ width: 85vw;
     align-items: center;
     margin-top: 10px;
     background:#fff;
+    width: 95%;
+    margin-left: 20px;
 }
-#table-like,#table-comment,#table-post,#table-user{
+/* #table-like,#table-comment,#table-post,#table-user{
     display:none;
+} */
+table{
+    width:100%;
+    text-align: center;
+    
+    
 }
-table {
-    border-collapse: collapse;
-    border: 2px solid rgb(200,200,200);
-    letter-spacing: 1px;
-    font-size: 0.8rem;
-    display: flex;
-    flex-direction: column;
+#table-user{
+    width:100%;
+    text-align: center;
+    display: none;
+    overflow-x: auto;
 
-  }
+} #table-blogs{
+    width:100%;
+    text-align: center;
+    display: none;
+    overflow-x: auto;
 
-  td, th {
-    border: 1px solid rgb(190,190,190);
-    padding: 10px 20px;
-   
-  }
-  .action-btn{
-    display: flex;
-    padding:0 5px;
-  }
-  .action-btn button{
-    margin-left: 5px;
-  }
-  .description-clom{
+} 
+#table-comment{
+    width:100%;
+    text-align: center;
+    display: none;
+    overflow-x: auto;
+}
+#table-post{
+    display: none;
+    overflow-x: auto;
+
+}
+thead{
+    margin-bottom: 20px;
+}
+
+th{
+  text-align: center;
+ font-family: "Quintessential", serif;
+}
+td{
+    text-align: center;
+    font-size: 12px;
+    
+}
+tr:nth-child(even){
+    background: rgba(125, 185, 237, 0.2);
+    
+}
+tr:first-child{
+    background: #eeeeee;
+}
+ .description-clom{
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  td {
-    text-align: center;
-  }
+  
 .container-edit{
     background: #fff;
-    box-shadow: 0 1px 6px rgb(0, 0, 0, 0.3);
-    border-radius: 10px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height:100%;
-    padding: 30px 100px;
     width: 100%;
 }
 .post-photo{
@@ -240,10 +312,9 @@ table {
 
 }
 .image-card{
-    width: 150px;
-    height: 150px;
-    border: 3px  solid var(--color-light-blue);
-    border-radius: 50%;
+    width:40%;
+    height:40%;
+    border: 1px  solid blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,7 +322,6 @@ table {
 .image-card img{
     width: 100%;
     height: 100%;
-    border-radius: 50%;
    object-fit: cover;
    object-position: center;
 }
@@ -259,12 +329,12 @@ table {
     display: none;
 }
 .post-photo label{
-    padding: 12px 18px;
+    padding: 10px 18px;
     margin-top: 20px;
-    background: var(--color-primary);
+    background: blue;
     color: #fff;
+    font-family: "Quintessential", serif;
     border-radius: 5px;
-    box-shadow: 0 1px 6px rgb(0, 0, 0, 0.1);
     cursor: pointer;
 
 }
@@ -274,19 +344,25 @@ table {
     width: 100%;
     border: 1px solid  rgb(184, 177, 177);
     border-radius: 5px;
-    border-bottom: 2px solid rgb(184, 177, 177);
+  
 }
+input::placeholder, textarea::placeholder{
+    font-family: "Quintessential", serif;
+
+}
+
 .container-edit button{
+    font-family: "Quintessential", serif;
     width: 100%;
     padding: 10px;
-    background: var(--color-light-blue);
+    background: blue;
+    color: #fff;
     border: none;
     outline: none;
-    box-shadow: 0 1px 6px rgb(0, 0, 0, 0.1);
     cursor: pointer;
     margin-top: 20px;
     border-radius: 5px
 }
 form{
-    display: none;
+ margin-bottom: 20px;   
 }

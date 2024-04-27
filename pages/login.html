@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../components/css/form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- =============================axios-link====CDN========================================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- =============================================GOOGLE-FONT==============================================    -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quintessential&family=Shippori+Antique&family=Truculenta:opsz,wdth,wght@12..72,75,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+        <div class="form">
+
+        
+        <form id="loginform">
+            <h2 class="heading">Login</h2>
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email"  placeholder="Email" required>
+                <div class="message">invalide format of email</div>
+            </div>
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"  placeholder="Password" required>
+                <div class="message">incorrect password</div>
+            </div>
+           
+
+            <button type="submit">Submit</button>
+                 <p>Do you have a accont <a href="signup.html">Sign up</a></p>
+
+        </form>
+        </div>
+    </div>
+
+  </div>  
+  <script>
+    
+
+const emaiInput = document.querySelector('#email');
+const passwordInput = document.querySelector('#password');
+const loginForm = document.querySelector('#loginform');
+
+console.log(emaiInput, passwordInput, loginForm)
+loginForm.addEventListener('submit', async(e)=>{
+    e.preventDefault();
+
+    const formData = new FormData()
+    formData.append('email', emaiInput.value)
+    formData.append('password', passwordInput.value)
+
+    try {
+
+         const response =  await axios.post('http://localhost:3000/login', formData,{
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('avatar', response.data.userAvatar)
+        //console.log(response.data)
+       window.location.href = './index.html'
+    } catch (error) {
+        console.log(error)
+    }
+})
+  </script>
+  
+</body>
+</html>

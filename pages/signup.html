@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../components/css/form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- =============================axios-link====CDN========================================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- =============================================GOOGLE-FONT==============================================    -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quintessential&family=Shippori+Antique&family=Truculenta:opsz,wdth,wght@12..72,75,100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+   
+  <div class="container">
+    <div class="form-container">
+        <div class="form">
+
+        
+        <form id="signup" enctype="multipart/form-data">
+            <h2 class="heading">Sign UP</h2>
+            <div class="input-container-file">
+                <div class="avatar">
+                <img src="../public/images/category/user.svg" id="imagedisplay" alt="">
+
+                </div>
+                <label for="image">Photo</label>
+                <input class="photo" type="file" style="display: none;" id="image" name="image"  placeholder="Password" required>
+            </div>
+            <div class="input-container">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username"  placeholder="Username" required>
+                <div class="message">invalide format of username</div>
+            </div>
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email"  placeholder="Email" required>
+                <div class="message">invalide format of email</div>
+            </div>
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"  placeholder="Password" required>
+                <div class="message">incorrect password</div>
+            </div>
+           
+
+            <button type="submit">Submit</button>
+                 <p>Do you have a accont <a href="login.html">Login</a></p>
+
+        </form>
+        </div>
+    </div>
+
+  </div>  
+  <script>
+    const signupForm = document.querySelector('#signup');
+const userNameInput = document.querySelector('#username');
+const emailInput = document.querySelector('#email');
+const passwordInput = document.querySelector('#password');
+const imageInput = document.querySelector('#image')
+const imageDisplay = document.querySelector('#imagedisplay');
+
+
+
+  // ---display image before post-------
+imageInput.onchange = ()=>{
+    imageDisplay.src= URL.createObjectURL(imageInput.files[0])
+    }
+console.log(signupForm, userNameInput, emailInput, passwordInput)
+signupForm.addEventListener('submit', async(e)=>{
+    e.preventDefault()
+    const formData = new FormData()
+    formData.append('username', userNameInput.value)
+    formData.append('email', emailInput.value)
+    formData.append('password', passwordInput.value)
+    formData.append('image', imageInput.files[0])
+  
+ 
+
+
+   try {
+    const response = await axios.post('http://localhost:3000/register', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+    localStorage.setItem('token', response.data.token);
+    window.location.href='./index.html'
+    console.log('Image uploaded successfully:', response.data);
+  } catch (error) {
+    console.log(error)
+  }
+
+  
+});
+
+  </script>
+  
+</body>
+</html>

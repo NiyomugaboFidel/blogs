@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>blog</title>
     <!-- ----------------------LINK-CSS------------ -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../components/css/style.css">
+   
+    <link href="main.css" rel="stylesheet" />
+    <link rel="stylesheet" href=" https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/?utm_source=lighthouse&utm_medium=devtools#how_unused_css_slows_down_performance
+    ">
 
     <!-- -------------LINK-ICONSCOUT-------------------- -->
     <!-- ---------------  UNICONS---------------->
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+<!-- -------------------FONT-AWESOME------------ -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"" />
 <!-- ------------FAVICON-------------- -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <link rel="shortcut icon" href="../public/log/log.svg" type="image/x-icon">
 
@@ -21,7 +29,7 @@
     <header>
     <nav id="header">
         <div class="nav-logo">
-         <a href="../public/index.html"><img src="../public/log/log.svg" ><h2>Blog</h2></a>
+         <a href="../public/index.html"><h2>Blog</h2></a>
          <div class="cycle"></div>
         </div>
         <!-- ------------NAV-CONTENT------------ -->
@@ -29,29 +37,53 @@
             <div class="nav-menu">
                 <ul class="nav_menu_list responsive">
                     <li class="nav-list">
-                        <a href="../public/index.html">Home</a>
+                        <a onclick="homeTag()" href="../pages/index.html"><i class="fa-solid fa-house" ></i><span>Home</span></a>
                     </li>
                     <li class="nav-list">
-                        <a href="../public/blog.html">Blog</a>
+                        <a onclick="blogTag()" href="../pages/blog.html"><i class="fa-solid fa-blog"></i><span>Blog</span></a>
+                    </li>
+                    <!-- <li class="nav-list">
+                        <a href="../public/singlepost.html">Single Post</a>
+                    </li> -->
+                    <li class="nav-list">
+                        <a onclick="postTag()" href="../pages/pages.html"><i class="fa-regular fa-image"></i><span>Posts</span></a>
                     </li>
                     <li class="nav-list">
-                        <a href="../public/pages.html">Pages</a>
+                        <a onclick="contactTag()" href="../pages/contact.html"><i class="fa-regular fa-message"></i><span>Contact</span></a>
                     </li>
-                    <li class="nav-list">
-                        <a href="../public/contact.html">Contact</a>
-                    </li>
+                    <div class="search-bar">
+                        <i class="uil uil-search"></i>
+                        <input type="Search" id="search" placeholder="Search..." value>
+                
+                     </div>
+    
                 </ul>
+                <div class="search-bar media">
+                    <i class="uil uil-search"></i>
+                    <input type="Search" id="search" placeholder="Search..." value>
+            
+                 </div>
+           
             </div>
+            
+           
             <div class="nav-btn responsive">
-                <button onclick="formShow()" class="btn login"><a href="display.html">Login</a></button>
-                <button class="btn signup" onclick="formShowSignUp()"><a href="display.html" color="black">SignUp</a></button>
+                
+                <button class="btn1"><a href="login.html">Login</a></button>
+                <button class="btn signup" ><a href="signup.html" color="black">Sign Up</a></button>
+                <div class="avater">
+                    <div id="nav-avatar" class="avater_profile">
+                     
+                    </div>
+                </div>
+                
             </div>
              <!-- ------------NAV-AVATER---------- -->
-        <div class="avater">
+        <!-- <div class="avater">
             <div class="avater_profile">
                 <img src="../public/images/avaters/avater8.jpg" alt="">
             </div>
-        </div>
+        </div> -->
         <div class="nav-menu-media">
             <i class="uil uil-bars" onclick="myMenuFunction()"></i>
         </div>
@@ -63,25 +95,45 @@
 
     <!-- -------------------------------MAIN----------------- -->
     <main class="wrapper">
-<div class="container2">
 
-            
-             <div class="search-bar1">
-                <i class="uil uil-search"></i>
-                <input type="Search" id="search" placeholder="Search..." value>
-             </div>
+    <div class="container2">
+        <div class="box-image-home">
+            <div class="box-image-home-content">
+              <div class="socail-medias">
 
-<div class="container-post">
-    
-    <div class="box-container">
+                <ul>
+                    <li><a href=""><i class="fa-brands fa-facebook" style="color: #024af2;"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-linkedin" style="color: #0850f7;"></i></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-github" style="color: #404245;"></i></i></a></li>
+                </ul>
 
-     <!-- =================================POSTCARD======================= -->
+              </div>
+            </div>
+        </div>
+        <div class="add-box">
+            <div class="popup-box">
+                <p id="name-test">j</p>
+                <h3>You can place ads</h3>
+                <span>750x100</span>
+            </div>
+        </div>
+        <!-- ------------------POST--------------- -->
+        <div class="container-post">
+            <div class="box-container">
+               
+                
+            </div>
 
+            <button id="load-more" class="load-more"><i class="fa-solid fa-circle-chevron-down fa-beat"></i></button>
+        </div>
     </div>
-
-
-    <button id="load-more" class="btn load-more">Load more<i class="uil uil-angle-double-down"></i></button>
-</div>
+    <div class="add-box">
+        <div class="popup-box">
+            <p>Advertisment</p>
+            <h3>You can place ads</h3>
+            <span>750x100</span>
+        </div>
+    </div>
     </main>
 
 
@@ -151,7 +203,7 @@
         </div>
         <div class="bottom-box">
             <div class="footer-logo">
-                <a href="../public/index.html"><img src="../public/log/log.svg" ><h4>Blog</h4></a>
+                <a href="../public/index.html"><h4>Blog</h4></a>
                 <p><span>&COPY;</span>developed By Fidel Pro.All Rights Reserved.</p>
                </div>
                <div class="footer-text">
@@ -164,7 +216,8 @@
 </div>
     <!-- -----------------------JAVASCRIPT-SOURCE-------------------- -->
 
-    <script src="../js/script.js"></script>
+    <script src="../components/js/script.js"></script>
+    <script src="../components/js/login.js"></script>
 
 
     

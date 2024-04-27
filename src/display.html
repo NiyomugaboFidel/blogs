@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>blog</title>
     <!-- ----------------------LINK-CSS------------ -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../components/css/style.css">
 
     <!-- -------------LINK-ICONSCOUT-------------------- -->
     <!-- ---------------  UNICONS---------------->
@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"" />
 <!-- ------------FAVICON-------------- -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <link rel="shortcut icon" href="../public/log/log.svg" type="image/x-icon">
 
@@ -21,50 +22,7 @@
 <body>
     <div class="container">
     <!-- ---------------------------NAV------------------ -->
-    <header>
-    <nav id="header">
-        <div class="nav-logo">
-         <a href="../public/index.html"><img src="../public/log/log.svg" ><h2>Blog</h2></a>
-         <div class="cycle"></div>
-        </div>
-        <!-- ------------NAV-CONTENT------------ -->
-        
-            <div class="nav-menu">
-                <ul class="nav_menu_list responsive">
-                    <li class="nav-list">
-                        <a href="../public/index.html">Home</a>
-                    </li>
-                    <li class="nav-list">
-                        <a href="../public/blog.html">Blog</a>
-                    </li>
-                    <!-- <li class="nav-list">
-                        <a href="../public/singlepost.html">Single Post</a>
-                    </li> -->
-                    <li class="nav-list">
-                        <a href="../public/pages.html">Pages</a>
-                    </li>
-                    <li class="nav-list">
-                        <a href="../public/contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-btn responsive">
-                <button onclick="formShow()" class="btn login">Login</button>
-                <button class="btn signup" onclick="formShowSignUp()">SignUp</button>
-            </div>
-             <!-- ------------NAV-AVATER---------- -->
-        <div class="avater">
-            <div class="avater_profile">
-                <img src="../public/images/avaters/avater8.jpg" alt="">
-            </div>
-        </div>
-        <div class="nav-menu-media">
-            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
-        </div>
-        
-
-    </nav>
-</header>
+   
 
 
     <!-- -------------------------------MAIN----------------- -->
@@ -130,7 +88,7 @@
     
     <div class="input-field">
         <i class="uil uil-user"></i>
-        <input type="text" id="regUsername" placeholder="craete username" required><br>
+        <input type="text" id="regUsername"  placeholder="craete username" required><br>
       
     </div>
     <div class="input-field-up">
@@ -307,43 +265,43 @@
 
 
 // #------------------------SIGNUP-------------------------
-document.querySelector('#registrationForm').addEventListener('submit', (e)=>{
+document.querySelector('#registrationForm').addEventListener('submit',async (e)=>{
     e.preventDefault();
   
     let regUsername = document.getElementById('regUsername').value
     let regPassword = document.getElementById('regPassword').value
     let regEmail = document.getElementById('regEmail').value
   
-    // -------------------validation--------------------
-    let errorMessages =[]
-    let Invalid = true;
+ // -------------------validation--------------------
+   // let errorMessages =[]
+   // let Invalid = true;
   
-    if(regUsername.trim() === ""){
-        Invalid = false;
-        errorMessages.push('name required fill this space')
-    }
-    // ------------------------EMAIL-PATTERN-FOR VALEDATION------------------
-     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if(regUsername.trim() === ""){
+     //   Invalid = false;
+    //    errorMessages.push('name required fill this space')
+   // }
+    //// ------------------------EMAIL-PATTERN-FOR VALEDATION------------------
+    // let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //
+    //if(!emailPattern.test(regEmail) && regEmail.trim() === ""){
+      //  Invalid = false;
+      //  errorMessages.push('please , email required and using all rules of full emain in written it')
   
-    if(!emailPattern.test(regEmail) && regEmail.trim() === ""){
-        Invalid = false;
-        errorMessages.push('please , email required and using all rules of full emain in written it')
+    //}
+    //if(regPassword.trim() === ""){
+    //    Invalid = false;
+    //    errorMessages.push('please error ditected fill and check that your length greater than 8')
   
-    }
-    if(regPassword.trim() === ""){
-        Invalid = false;
-        errorMessages.push('please error ditected fill and check that your length greater than 8')
+    //}
+    //if(regPassword.length < 8){
+    // Invalid = false;
+    //errorMessages.push('password morst be greater than 8 characteres')
+    //}
   
-    }
-    if(regPassword.length < 8){
-     Invalid = false;
-    errorMessages.push('password morst be greater than 8 characteres')
-    }
-  
-    if(Invalid == false){
-        alert(errorMessages.join('\n'))
-        return;
-    }
+   // if(Invalid == false){
+      //  alert(errorMessages.join('\n'))
+       // return;
+    //} 
   
   
         let users = JSON.parse(localStorage.getItem('users')) || [];
@@ -359,8 +317,20 @@ document.querySelector('#registrationForm').addEventListener('submit', (e)=>{
         
            
             users.push({username: regUsername, email: regEmail, password: regPassword})
+
+          await axios.post('https://blog-backend-sgk5.onrender.com/register',
+            {
+                username:regUsername,
+                email:regEmail,
+                password:regPassword
+            }).then((post)=>{
+              console.log('result:', post)
+            }).catch((err)=>{
+ 
+                console.log(err)
+            })
   
-            localStorage.setItem('users', JSON.stringify(users))
+           // localStorage.setItem('users', JSON.stringify(users))
             
             alert(' registration successful your welcome. please login')
             

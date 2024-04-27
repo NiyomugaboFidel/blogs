@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../components/css/dash.css">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+<!-- -------------------FONT-AWESOME------------ -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- ------------FAVICON-------------- -->
+
+<link rel="shortcut icon" href="../public/log/log.svg" type="image/x-icon">
+
+</head>
+<body>
+    <div class="popupbox active">
+        <div class="box-pop">
+            <div class="closebtn"><i class="fa-regular fa-circle-xmark" style="color: black;"></i></div>
+            <div class="answer error"><i class="fa-solid fa-question" style="color: #5b5858;"></i></div>
+            <p>Error detected ?</p>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+
+            <nav>
+                <div class="menu-bar">
+                    <ul>
+                        <li onclick="users()">
+                            <a href="#"><i class="fa-solid fa-users"></i>Users</a>
+                        </li>
+                        <li onclick="blogs()">
+                            <a href="#"><i class="fa-solid fa-camera-retro"></i>BlogInfo</a>
+                        </li>
+                        <li onclick="post()">
+                            <a href="#"><i class="fa-solid fa-camera-retro"></i>Posting</a>
+                        </li>
+                       
+                        <li onclick="messages()">
+                            <a href="#"><i class="fa-solid fa-message"></i>Message</a>
+                        </li>
+                        <li onclick="comments()">
+                            <a href="#"><i class="fa-solid fa-comments"></i>comment</a>
+                        </li>
+                        <li onclick="homePage()">
+                            <a href="#"><i class="fa-solid fa-house-laptop"></i>HomePage</a>
+                        </li>
+                    </ul>
+            
+                </div>
+                <div class="nav-bottom">
+                    <p>&copy; DK 2024</p>
+                </div>
+               </nav>
+        </header>
+   
+
+   <main>
+    <div class="main-container">
+        <div class="header">
+            <div class="main-header">
+                <div class="menu-button">
+                    <h2>Blog Dashboard</h2>
+                </div>
+                <div class="logo">
+                   
+                    <i class="fa-solid fa-bell" style="color: #065ff9;"></i>
+                    <i class="fa-solid fa-message" style="color: #3af207;"></i>
+                    <div class="avatar">
+                        <img src="../public/images/avaters/avater-5.jpg" alt="">
+                    </div>
+                </div>
+         
+               
+            </div>
+        </div>
+        
+       <!-- ================================================TABLE====Users================================= -->
+
+        <div class="table-container">
+            <div id="table-user">
+             <table>
+               <thead>
+                <tr>
+                    <th>N</th>
+                    <th>userImage</th>
+                    <th>UserId</th>
+                    <th>Username</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+               </thead>  
+               <tbody>
+                <!-- <tr class="claminfo">
+                    <td>1</td>
+                    <td>11111111111</td>
+                    <td> 
+                          <div class="avatar">
+                        <img src="../public/images/blog/home1.jpg" alt="">
+                          </div>
+
+                    </td>
+                    <td>teta kanyana</td>
+                    <td>01/ 12/ 2023</td>
+                    <td><buttton class="btn edit"><i class="fa-solid fa-edit"></i></buttton> <button class="btn delete"><i class="fa-solid fa-trash"></i></button></td>
+                </tr> -->
+               </tbody>
+             
+            </table>
+            </div>
+
+       
+            <!-- ===============================================TABLE==BLOGS================================================     -->
+            <div id="table-blogs">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>N</th>
+                    <th>PostImage</th>
+                    <th>PostId</th>
+                    <th>Username</th>
+                    <th>PostTitle</th>
+                    <th>CommentCount</th>
+                    <th>LikeCount</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+               </thead>  
+               <tbody>
+                <!-- <tr class="claminfo">
+                    <td>1</td>
+                    <td>11111111111</td>
+                    <td> 
+                          <div class="avatar">
+                        <img src="../public/images/blog/home1.jpg" alt="">
+                          </div>
+
+                    </td>
+                    
+                    <td>teta kanyana</td>
+                    <td>Techenology</td>
+                    <td><span>23</span>Comments</td>
+                    <td><span>100</span>likes</td>
+                    <td>01/ 12/ 2023</td>
+                    <td><buttton class="btn edit"><i class="fa-solid fa-edit"></i></buttton> <button class="btn delete"><i class="fa-solid fa-trash"></i></button></td> -->
+                </tr>
+               
+               </tbody>
+
+
+        </table>
+        </div>
+
+    <!-- ==================================TABLE-POSTING/UPLOAD=================================================== -->
+     <div id="table-post">  
+    <form id="post-form" enctype="multipart/form-data">
+                     
+        <div id="con" class="container-edit">
+            <div class="post-photo">
+                <div class="image-card">
+                    <img src="../public/images/category/user.svg" id="imageUrl" alt="">
+                </div>
+                
+                <input type="file" id="inputFile">
+                <label for="inputFile">UploadPhoto</label>
+            </div>
+           <div class="post post-title">
+            <input type="text" id="inputTitle"  placeholder="Title">
+           </div>
+            <div class="post description">
+            
+                <textarea placeholder="description" id="inputDescription" cols="30" rows="10"></textarea>
+
+            </div>
+            <button type="submit" id="postBtn">Post</button>
+           
+           
+        </div>  
+
+     </form>
+     </div>
+
+     
+        <!-- =============================================TABLE===============COMMENT============================= -->
+        <div id="table-comment">
+
+  
+        <table>
+            <thead>
+                <tr>
+                    <th>N</th>
+                    <th>CommentId</th>
+                    <th>UserImage</th>
+                    <th>Username</th>
+                    <th>Comment</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+               </thead>  
+               <tbody>
+                <tr class="claminfo">
+                    <td>1</td>
+                    <td>11111111111</td>
+                    <td> 
+                          <div class="avatar">
+                        <img src="../public/images/blog/home1.jpg" alt="">
+                          </div>
+
+                    </td>
+                    
+                    <td>teta kanyana</td>
+                    <td>I like you❤️</td>
+                    <td>01/ 12/ 2023</td>
+                    <td><buttton class="btn edit"><i class="fa-solid fa-edit"></i></buttton> <button class="btn delete"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+                <tr class="claminfo">
+                    <td>1</td>
+                    <td>11111111111</td>
+                    <td> 
+                          <div class="avatar">
+                        <img src="../public/images/blog/home1.jpg" alt="">
+                          </div>
+
+                    </td>
+                    
+                    <td>teta kanyana</td>
+                    <td>I like you❤️</td>
+                    <td>01/ 12/ 2023</td>
+                    <td><buttton class="btn edit"><i class="fa-solid fa-edit"></i></buttton> <button class="btn delete"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+               </tbody>
+
+
+            </table>
+            </div>
+
+            <!-- ===========================TAble-Update================================= -->
+
+     <!-- ===========================================================TABLE_END=============================================== -->
+
+
+        </div>
+    </div>
+
+    <div style="display: none;" class="box-container">
+               
+                
+    </div>
+   </main>
+
+
+    </div>
+    <script>
+        const inputFile = document.querySelector('#inputFile');
+        const imageUrl = document.querySelector('#imageUrl')
+        
+        inputFile.onchange = ()=>{
+            imageUrl.src= URL.createObjectURL(inputFile.files[0]);
+        }
+        
+        
+        
+        axios.get('http://localhost:3000/dash', {
+        headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}` // Include the token in the 'Authorization' header
+        }
+        },
+        {
+         withCredentials: true
+        
+        }).then(response => {
+        console.log(response)   
+        })
+        .catch(error => {
+        console.log('Error accessing dashboard:', error);
+        // Redirect to login page or display error message
+        window.location.href = '../pages/login.html'
+        
+        });
+    </script>
+
+<script src="../components/js/dashboard.js"> 
+</script>
+<script src="../components/js/main.js"></script>
+
+</body>
+</html>

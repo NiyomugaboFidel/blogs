@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+    <!-- ----------------------LINK-CSS------------ -->
+    <link rel="stylesheet" href="../components/css/style.css">
+
+    <!-- -------------LINK-ICONSCOUT-------------------- -->
+    <!-- ---------------  UNICONS---------------->
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+<!-- -------------------FONT-AWESOME------------ -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"" />
+<!-- ------------FAVICON-------------- -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link rel="shortcut icon" href="../public/log/log.svg" type="image/x-icon">
+
+</head>
+<body>
+    <div class="container">
+    <!-- ---------------------------NAV------------------ -->
+    <header>
+    <nav id="header">
+        <div class="nav-logo">
+         <a href="../public/index.html"><h2>Blog</h2></a>
+         <div class="cycle"></div>
+        </div>
+        <!-- ------------NAV-CONTENT------------ -->
+        
+            <div class="nav-menu">
+                <ul class="nav_menu_list responsive">
+                    <li class="nav-list">
+                        <a onclick="homeTag()" href="../pages/index.html"><i class="fa-solid fa-house" ></i><span>Home</span></a>
+                    </li>
+                    <li class="nav-list">
+                        <a onclick="blogTag()" href="../pages/blog.html"><i class="fa-solid fa-blog"></i><span>Blog</span></a>
+                    </li>
+                    <!-- <li class="nav-list">
+                        <a href="../public/singlepost.html">Single Post</a>
+                    </li> -->
+                    <li class="nav-list">
+                        <a onclick="postTag()" href="../pages/pages.html"><i class="fa-regular fa-image"></i><span>Posts</span></a>
+                    </li>
+                    <li class="nav-list">
+                        <a onclick="contactTag()" href="../pages/contact.html"><i class="fa-regular fa-message"></i><span>Contact</span></a>
+                    </li>
+                    <div class="search-bar">
+                        <i class="uil uil-search"></i>
+                        <input type="Search" id="search" placeholder="Search..." value>
+                
+                     </div>
+    
+                </ul>
+                <div class="search-bar media">
+                    <i class="uil uil-search"></i>
+                    <input type="Search" id="search" placeholder="Search..." value>
+            
+                 </div>
+           
+            </div>
+            
+           
+            <div class="nav-btn responsive">
+                <button class="btn1"><a href="login.html">Login</a></button>
+                <button class="btn signup" ><a href="signup.html" color="black">Sign Up</a></button>
+        
+             <!-- ------------NAV-AVATER---------- -->
+        <div class="avater">
+            <div id="nav-avatar" class="avater_profile">
+                     
+            </div>
+        </div>
+        </div>
+    
+
+        <div class="nav-menu-media">
+            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+        
+
+    </nav>
+</header>
+
+    <!-- -------------------------------MAIN----------------- -->
+    <main>
+         
+ 
+        <div class="singlepost-container">
+             <div class="singlepost-box">
+            <!-- <div class="category-btn">
+                    <button>Technology</button>
+                </div>
+                <h2>
+                    The Impact of Technology on the Workplace:How 
+                    Technology is Changing
+                </h2>
+                <div class="single-avater">
+                    <div class="avater-profile-single">
+                        <img src="../public/images/category/user.svg" alt="">
+                        <span>Tracey Wilson</span>
+                        <p>August 20, 2022</p>
+                    </div>
+                </div>    
+                
+                <div class="post1" id="single-post">
+                    <!-- =====================singlepost==================== -->
+                <!-- </div>-->
+               
+            </div>
+        </div> 
+    </main>
+
+
+    <!-- -----------------------FOOTER------------------------ -->
+    <footer>
+        <div class="container3">
+            <div class="line1">
+            <h3>About</h3>
+            <p>Lorem ipsum dolor sit amet
+                 consectetur adipisicing elit
+                . Dolor maiores in libero
+                 ullam vel aut, adipisci 
+                de sapiente, molestiae quas
+                , repudiandae ipsum? Facere.
+            </p>
+            <div class="line1-info">
+                
+                    <p><span>Email:</span>info@jstemplate.net</p>
+                    <p>  <span>Phone:</span>+250 788 888 888</p>
+                  
+                
+                     
+            </div>
+            
+        </div>
+        <div class="line2">
+            <h3>Quick Link</h3>
+            <ul>
+               <li> <a href="home.html">Home</a> </li>
+               <li> <a href="about.html">About</a> </li>
+               <li> <a href="blog.html">Blog</a> </li>
+               <li> <a href="archived.html">Archived</a> </li>
+               <li> <a href="aurthor.html">Author</a> </li>
+               <li> <a href="contact.html">Contact</a> </li>
+            </ul>
+        </div>
+        <div class="line3">
+            <h3>Category</h3>
+            <ul>
+               <li> <a href="category.html">Lifestyle</a> </li>
+               <li> <a href="categoryt.html">Technology</a> </li>
+               <li> <a href="category.html">Travel</a> </li>
+               <li> <a href="category.html">Bussiness</a> </li>
+               <li> <a href="category.html">Economy</a> </li>
+               <li> <a href="categoyr.html">Sports</a> </li>
+            </ul>
+        </div>
+
+        <div class="line4">
+            <h3>weekly Newsletter</h3>
+
+            <p>Get blog articles and offers via email</p>
+
+            <form action="">
+                <div class="email-box">
+                    <div class="inputs">
+                        <input type="email" id="email" placeholder="Your Email" value>
+                        <i class="uil uil-envelope"></i>
+                    </div>
+                  
+                    
+                    <button class="btn sub-btn">Subscribe<i class="uil uil-message"></i></button>
+                </div>
+                
+            </form>
+        </div>
+        </div>
+        <div class="bottom-box">
+            <div class="footer-logo">
+                <a href="../public/index.html"><h4>Blog</h4></a>
+                <p><span>&COPY;</span>developed By Fidel Pro.All Rights Reserved.</p>
+               </div>
+               <div class="footer-text">
+                <p>Terms of Use</p>
+                <p>Privacy Policy</p>
+                <p>Cookie Policy</p>
+               </div>
+        </div>
+    </footer>
+</div>
+    <!-- -----------------------JAVASCRIPT-SOURCE-------------------- -->
+
+    <script src="../components/js/script.js"></script>
+    <script src="../components/js/blog.js"></script>
+
+
+    
+</body>
+</html>
